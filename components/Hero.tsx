@@ -86,7 +86,7 @@ export function Hero() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-white"
         >
-          <BrandMark variant="light" size="lg" className="mb-8" />
+          <BrandMark size="lg" className="mb-8 shadow-lg shadow-black/15" />
           <h1 className="max-w-xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.35rem]">
             Understand your IBD. Discover your triggers.
           </h1>
