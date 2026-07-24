@@ -94,18 +94,12 @@ export function Hero() {
             Vera helps people with IBD track their health, discover personal
             patterns, and gain insights into what influences their symptoms.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-8">
             <a
               href="#waitlist"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-vera-green-dark transition hover:bg-vera-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-vera-green"
+              className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-vera-green-dark transition hover:bg-vera-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-vera-green"
             >
               Join the waitlist
-            </a>
-            <a
-              href="#how-it-works"
-              className="rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-            >
-              Get early access
             </a>
           </div>
         </motion.div>
