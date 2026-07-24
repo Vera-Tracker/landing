@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --vera-green: #407048;
+  --vera-green-dark: #2f5535;
+  --vera-green-soft: #e8f0e9;
+  --vera-mist: #f4f7f5;
+  --vera-mist-blue: #eef3f1;
+  --vera-ink: #1a241c;
+  --vera-muted: #5c6b60;
+  --vera-border: #d5e0d7;
+  --background: #ffffff;
+  --foreground: var(--vera-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-vera-green: var(--vera-green);
+  --color-vera-green-dark: var(--vera-green-dark);
+  --color-vera-green-soft: var(--vera-green-soft);
+  --color-vera-mist: var(--vera-mist);
+  --color-vera-mist-blue: var(--vera-mist-blue);
+  --color-vera-ink: var(--vera-ink);
+  --color-vera-muted: var(--vera-muted);
+  --color-vera-border: var(--vera-border);
+  --font-sans: var(--font-plus-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--vera-green) 28%, white);
+  color: var(--vera-ink);
+}
