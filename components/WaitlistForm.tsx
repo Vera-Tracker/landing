@@ -34,9 +34,25 @@ export function WaitlistForm() {
   return (
     <section
       id="waitlist"
-      className="bg-white py-20 sm:py-28"
+      className="relative overflow-hidden bg-[radial-gradient(90%_80%_at_50%_0%,#e8f0e9_0%,#ffffff_55%,#f4f7f5_100%)] py-20 sm:py-28"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <div className="absolute left-1/2 top-10 h-40 w-[36rem] -translate-x-1/2 rounded-full bg-vera-green/10 blur-3xl" />
+        <svg
+          className="absolute inset-x-0 top-0 mx-auto h-48 w-full max-w-4xl opacity-30"
+          viewBox="0 0 800 160"
+          fill="none"
+        >
+          <path
+            d="M0 100 C120 40, 220 140, 340 80 S560 20, 800 90"
+            stroke="#407048"
+            strokeWidth="1.2"
+            strokeDasharray="5 8"
+            className="animate-dash"
+          />
+        </svg>
+      </div>
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="mx-auto max-w-xl">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -98,7 +114,7 @@ export function WaitlistForm() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="relative mt-10 space-y-5 rounded-2xl border border-vera-border bg-vera-mist/60 p-6 sm:p-8"
+                className="relative mt-10 space-y-5 rounded-[1.75rem] border border-vera-border/80 bg-white/90 p-6 shadow-[0_30px_80px_-40px_rgba(47,85,53,0.45)] backdrop-blur sm:p-8"
                 noValidate
               >
                 <div className="sr-only" aria-hidden>

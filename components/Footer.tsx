@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-vera-border bg-vera-mist py-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 sm:flex-row sm:items-start sm:justify-between sm:px-8">
         <div>
-          <BrandMark size="sm" />
+          <BrandMark variant="onLight" size="sm" />
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-vera-muted">
             Your personal AI companion for understanding and managing IBD.
           </p>

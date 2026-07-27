@@ -48,18 +48,57 @@ export async function joinWaitlist(formData: FormData): Promise<WaitlistResult> 
     };
   }
 
-  const { error } = await supabase.from("waitlist").insert({
-    name,
-    email,
-    ibd_type: ibdType,
-  });
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+  if (
+    url.includes("YOUR_PROJECT") ||
+    !url.startsWith("https://") ||
+    !url.includes(".supabase.co")
+  ) {
+    console.error("NEXT_PUBLIC_SUPABASE_URL looks invalid:", url);
+    return {
+      ok: false,
+      error: "Waitlist is misconfigured. Check NEXT_PUBLIC_SUPABASE_URL in .env.local.",
+    };
+  }
 
-  if (error) {
-    if (error.code === "23505") {
-      return { ok: false, error: "You're already on the waitlist with this email." };
+  try {
+    const { error } = await supabase.from("waitlist").insert({
+      name,
+      email,
+      ibd_type: ibdType,
+    });
+
+    if (error) {
+      if (error.code === "23505") {
+        return { ok: false, error: "You're already on the waitlist with this email." };
+      }
+      console.error(
+        "Waitlist insert failed:",
+        error.message,
+        error.details || "",
+        error.hint || "",
+      );
+      if (/fetch failed|ENOTFOUND|ECONNREFUSED|network/i.test(error.message)) {
+        return {
+          ok: false,
+          error:
+            "Could not reach Supabase. Check your internet connection, that the project is active, and restart npm run dev.",
+        };
+      }
+      return { ok: false, error: "Something went wrong. Please try again." };
     }
-    console.error("Waitlist insert failed:", error.message);
-    return { ok: false, error: "Something went wrong. Please try again." };
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    const cause =
+      err instanceof Error && err.cause instanceof Error
+        ? err.cause.message
+        : "";
+    console.error("Waitlist insert threw:", message, cause);
+    return {
+      ok: false,
+      error:
+        "Could not reach Supabase. Check your internet connection and that the project is active.",
+    };
   }
 
   return { ok: true };
